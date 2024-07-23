@@ -21,7 +21,10 @@ Parses response as HTML and populate a [Selection](https://grafana.com/docs/k6/<
 import http from 'k6/http';
 
 export default function () {
-  const res = http.get('https://stackoverflow.com');
+  const res = http.get('https://stackoverflow.com',
+    {
+      responseType: "text"
+    });
 
   const doc = res.html();
   doc
